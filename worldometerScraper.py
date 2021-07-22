@@ -25,6 +25,6 @@ world.loc[world['location'] == 'UK', 'location'] = 'United Kingdom'
 world.loc[world['location'] == 'The Bahamas', 'location'] = 'Bahamas'
 world.loc[world['location'] == 'Cabo Verde', 'location'] = 'Cape Verde'
 world = pd.DataFrame({"Kevin":[1, 2, 3]})
-world.to_csv('./COVIDWarRoom/world.csv', index = False)
+world.to_csv('data/world.csv', index = False)
 print('Scrape successful...')
 
