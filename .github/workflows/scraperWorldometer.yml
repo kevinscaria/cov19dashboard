@@ -2,7 +2,7 @@ name: scraper-worldometer
 
 on:
   schedule:
-    - cron: '55 6 * * *' # runs at 06:00 UTC everyday
+    - cron: '55 17 * * *' # runs at 17:55 UTC everyday
 
 jobs:
   build:
@@ -10,7 +10,7 @@ jobs:
     steps:
 
       - name: checkout repo content
-        uses: actions/checkout@v2 # checkout the repository content to github runner
+        uses: actions/checkout@v2
 
       - name: setup python
         uses: actions/setup-python@v2
@@ -22,7 +22,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           
-      - name: execute py script # run sj-gobierno.py to get the latest data
+      - name: execute py script # run worldometerScraper.py to get the latest data
         run: python worldometerScraper.py
           
       - name: commit files
