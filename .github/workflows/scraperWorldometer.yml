@@ -2,7 +2,7 @@ name: scraper-worldometer
 
 on:
   schedule:
-    - cron: '52 6 * * *' # runs at 06:00 UTC everyday
+    - cron: '55 6 * * *' # runs at 06:00 UTC everyday
 
 jobs:
   build:
