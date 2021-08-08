@@ -4,11 +4,9 @@ from gazpacho import Soup
 
 #Date Management
 today = datetime.today()
-yesterday = today - timedelta(days=1)
 
 #Load data dump
-df = pd.read_csv('data/worldometerData.csv')
-df['date'] = yesterday.strftime('%d-%m-%Y')
+df = pd.read_csv('data/worldometerTimeSeriesData.csv')
 
 # Download Data to system
 soup = Soup.get('https://www.worldometers.info/coronavirus/')
