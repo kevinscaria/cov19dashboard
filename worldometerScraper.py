@@ -1,5 +1,14 @@
 import pandas as pd
+from datetime import datetime, timedelta
 from gazpacho import Soup
+
+#Date Management
+today = datetime.today()
+yesterday = today - timedelta(days=1)
+
+#Load data dump
+df = pd.read_csv('data/worldometerData.csv')
+df['date'] = yesterday.strftime('%d-%m-%Y')
 
 # Download Data to system
 soup = Soup.get('https://www.worldometers.info/coronavirus/')
@@ -24,4 +33,9 @@ world.loc[world['location'] == 'USA', 'location'] = 'United States'
 world.loc[world['location'] == 'UK', 'location'] = 'United Kingdom'
 world.loc[world['location'] == 'The Bahamas', 'location'] = 'Bahamas'
 world.loc[world['location'] == 'Cabo Verde', 'location'] = 'Cape Verde'
-world.to_csv('data/worldometerData.csv', index = False)
+world['date'] = today.strftime('%d-%m-%Y')
+
+#Append new data
+df = df.append(world)
+
+df.to_csv('data/worldometerTimeSeriesData.csv', index = False)
