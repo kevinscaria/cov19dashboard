@@ -2,11 +2,6 @@ import pandas as pd
 from datetime import datetime, timedelta
 from gazpacho import Soup
 
-#Date Management
-today = datetime.today()
-
-#Load data dump
-df = pd.read_csv('data/worldometerTimeSeriesData.csv')
 
 # Download Data to system
 soup = Soup.get('https://www.worldometers.info/coronavirus/')
@@ -35,6 +30,12 @@ world['date'] = today.strftime('%d-%m-%Y')
 
 #Save daily data
 world.to_csv('data/worldometerData.csv', index = False)
+
+#Date Management
+today = datetime.today()
+
+#Load data dump
+df = pd.read_csv('data/worldometerTimeSeriesData.csv')
 
 #Append new data
 df = df.append(world)
