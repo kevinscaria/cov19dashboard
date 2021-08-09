@@ -2,7 +2,6 @@ import pandas as pd
 from datetime import datetime, timedelta
 from gazpacho import Soup
 
-
 # Download Data to system
 soup = Soup.get('https://www.worldometers.info/coronavirus/')
 table = soup.find("table", {"id": "main_table_countries_today"}, mode="first")
@@ -39,5 +38,4 @@ df = pd.read_csv('data/worldometerTimeSeriesData.csv')
 
 #Append new data
 df = df.append(world)
-
 df.to_csv('data/worldometerTimeSeriesData.csv', index = False)
