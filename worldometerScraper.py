@@ -33,6 +33,9 @@ world.loc[world['location'] == 'The Bahamas', 'location'] = 'Bahamas'
 world.loc[world['location'] == 'Cabo Verde', 'location'] = 'Cape Verde'
 world['date'] = today.strftime('%d-%m-%Y')
 
+#Save daily data
+world.to_csv('data/worldometerData.csv', index = False)
+
 #Append new data
 df = df.append(world)
 
