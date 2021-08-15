@@ -39,3 +39,32 @@ df = pd.read_csv('data/worldometerTimeSeriesData.csv')
 #Append new data
 df = df.append(world)
 df.to_csv('data/worldometerTimeSeriesData.csv', index = False)
+
+
+#Download district wise vax data
+vaxDf = pd.read_csv('http://api.covid19india.org/csv/latest/cowin_vaccine_data_districtwise.csv', dtype=object)
+vaxDf = vaxDf[vaxDf['State'].notnull()]
+vaxDf.to_csv("data/vaxDf.csv", index=False)
+
+#Download state wise vax data
+vaxDfS = pd.read_csv('http://api.covid19india.org/csv/latest/cowin_vaccine_data_statewise.csv')
+vaxDfS = vaxDfS[vaxDfS['State'] != 'India']
+vaxDfS.to_csv("data/vaxDfS.csv", index=False)
+
+#Download india district wise main data
+indDf = pd.read_csv('https://api.covid19india.org/csv/latest/districts.csv')
+indDf = indDf[indDf['District']!= 'Unknown']
+finalRem = ['State Pool', 'Airport Quarantine', 'Gaurela Pendra Marwahi',
+			 'Other State', 'Dakshin Bastar Dantewada', 'Pakke Kessang',
+			 'Chhota Udaipur', 'Railway Quarantine', 'Prayagraj',
+			 'Kalaburagi', 'Others', 'Italians',
+			 'Y.S.R. Kadapa', 'Foreign Evacuees', 'Capital Complex',
+			 'Evacuees', 'Uttar Bastar Kanker', 'Ayodhya', 'BSF Camp', 'Other Region']
+indDf = indDf[~indDf['District'].isin(finalRem)]
+indDf.to_csv("data/indDf.csv", index=False)
+
+
+#Download india state wise main data
+indDfS = pd.read_csv('https://api.covid19india.org/csv/latest/states.csv')
+indDfS = indDfS[(indDfS['State'] != 'India') & (indDfS['State'] != 'State Unassigned')]
+indDfS.to_csv("data/indDfS.csv", index=False)
