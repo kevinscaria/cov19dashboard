@@ -40,7 +40,6 @@ df = pd.read_csv('data/worldometerTimeSeriesData.csv')
 df = df.append(world)
 df.to_csv('data/worldometerTimeSeriesData.csv', index = False)
 
-
 #Download district wise vax data
 vaxDf = pd.read_csv('http://api.covid19india.org/csv/latest/cowin_vaccine_data_districtwise.csv', dtype=object)
 vaxDf = vaxDf[vaxDf['State'].notnull()]
@@ -62,7 +61,6 @@ finalRem = ['State Pool', 'Airport Quarantine', 'Gaurela Pendra Marwahi',
 			 'Evacuees', 'Uttar Bastar Kanker', 'Ayodhya', 'BSF Camp', 'Other Region']
 indDf = indDf[~indDf['District'].isin(finalRem)]
 indDf.to_csv("data/indDf.csv", index=False)
-
 
 #Download india state wise main data
 indDfS = pd.read_csv('https://api.covid19india.org/csv/latest/states.csv')
