@@ -1,4 +1,4 @@
-name: scraper-worldometer
+name: scraper-cov19data
 
 on:
   schedule:
