@@ -9,3 +9,7 @@ The sources from which data is scraped daily is as follows:
 2) COVID19-India API (https://data.covid19india.org/) - Statewise and districtwise cases, vaccination and testing data.
 
 The data can be used for further analysis or to integrate it in your projects.
+
+The following data is used along with other open source data to power the Cov19Dashboard which is live at the following link:
+
+URL to the web application: http://cov19dashboard.pythonanywhere.com/
