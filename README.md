@@ -7,6 +7,7 @@ This repository runs daily script to scrape the required COVID 19 information at
 The sources from which data is scraped daily is as follows:
 1) Worldometer Coronavirus update (Link: https://www.worldometers.info/coronavirus/) - Country wise active cases, total cases, total deaths, total recovered and active cases as a time series. 
 2) COVID19-India API (https://data.covid19india.org/) - Statewise and districtwise cases, vaccination and testing data.
+3) myGOV (https://www.mygov.in/corona-data/covid19-statewise-status/) - Statewise cases data.
 
 The data can be used for further analysis or to integrate it in your projects.
 
