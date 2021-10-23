@@ -2,7 +2,7 @@ name: scraper-cov19data
 
 on:
   schedule:
-    - cron: '30 17 * * *' # runs at 17:30 UTC everyday
+    - cron: '10 18 * * *' # runs at 17:30 UTC everyday
 
 jobs:
   build:
