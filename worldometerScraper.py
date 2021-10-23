@@ -114,9 +114,8 @@ for tgs in val_list[15]:
 #Direct Cases
 direct_cases = soup.find("div", {"class": "field-item even"}, mode="all")
 for idx, i in enumerate(direct_cases):
-    # print(i.text)
     if i.text == 'State Name:':
-        state_dict[table[idx+1].text] = [today] + [int(j.text) for j in table[idx+2:idx+5]]
+        state_dict[direct_cases[idx+1].text] = [today] + [int(j.text) for j in direct_cases[idx+2:idx+5]]
 
 indDfs_mohfw = pd.DataFrame(state_dict, index = ['date', 'Confirmed', 'Recovered', 'Death']).T.reset_index()
 indDfs_mohfw = indDfs_mohfw.rename(columns = {'index':'State'})
