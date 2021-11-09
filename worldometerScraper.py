@@ -51,7 +51,7 @@ vaxDfS = vaxDfS[vaxDfS['State'] != 'India']
 vaxDfS.to_csv("data/vaxDfS.csv", index=False)
 
 #Download india district wise main data
-indDf = pd.read_csv('	https://data.incovid19.org/csv/latest/districts.csv')
+indDf = pd.read_csv('https://data.incovid19.org/csv/latest/districts.csv')
 indDf = indDf[indDf['District']!= 'Unknown']
 finalRem = ['State Pool', 'Airport Quarantine', 'Gaurela Pendra Marwahi',
 			 'Other State', 'Dakshin Bastar Dantewada', 'Pakke Kessang',
