@@ -45,7 +45,7 @@ df.to_csv('data/worldometerTimeSeriesData.csv', index = False)
 vaxDf = pd.read_csv('https://data.incovid19.org/csv/latest/cowin_vaccine_data_districtwise.csv', dtype=object)
 new_col_names = np.array(vaxDf.columns) + '._' + np.array(vaxDf.iloc[0, :].values)
 vaxDf.columns = new_col_names
-vaxDf = vaxDf[vaxDf['State'].notnull()]
+vaxDf = vaxDf[vaxDf['State._ '].notnull()]
 vaxDf.to_csv("data/vaxDf.csv", index=False)
 
 #Download state wise vax data
